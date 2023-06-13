@@ -14,7 +14,7 @@ sequenceDiagram
 
     server-->>browser: HTTP status code 302
 
-    Note left of browser: URL redirect, asks the browser to do a new HTTP GET request
+    Note right of browser: URL redirect, asks the browser to do a new HTTP GET request
     
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     
