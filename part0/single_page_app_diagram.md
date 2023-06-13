@@ -8,6 +8,8 @@ sequenceDiagram
     server-->>browser: HTML document
     deactivate server
 
+    Note right of browser: The html form has no action or method attribute
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
