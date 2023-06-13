@@ -3,9 +3,11 @@ sequenceDiagram
     participant browser
     participant server
 
-    Note right of browser: User sends input from form (content & date); Content-type: application/json
 
     browser->>server: POST Https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Note right of browser: User sends input from form (content & date)
+    Note right of browser: Content-type: application/json
+
     activate server
     server-->>browser: HTML document
     deactivate server
