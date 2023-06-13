@@ -12,7 +12,9 @@ sequenceDiagram
 
     Note right of browser: "Note" input in form is filled by the user & sent to "/new_note" when the submit button is clicked
 
+    activate server
     server-->>browser: HTTP status code 302
+    deactivate server
 
     Note right of browser: URL redirect, asks the browser to do a new HTTP GET request
     
