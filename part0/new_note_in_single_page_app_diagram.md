@@ -9,14 +9,9 @@ sequenceDiagram
     Note right of browser: Content-type: application/json
 
     activate server
-    server-->>browser: HTML document
+    server-->>browser: 201 Created
     deactivate server
 
-
-    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
-    activate server
-    server-->>browser: HTML document
-    deactivate server
-
+    Note right of browser: JS Creates the new note object, pushes it to the notes array in the current page and sends it to the server
 
 ```
