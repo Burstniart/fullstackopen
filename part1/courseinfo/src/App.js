@@ -2,21 +2,26 @@ const App = () => {
     // const=definitions
     
     const course = 'Half Stack application development'
-    const part1 = 'Fundamentals of React'
-    const exercises1 = 10
-    const part2 = 'Using props to pass data'
-    const exercises2 = 7
-    const part3 = 'State of a component'
-    const exercises3 = 14
-    const exercises = [10, 7, 14]    
+    const part1 = {
+	name: 'Fundamentals of React',
+	exercises: 10
+    }
+    const part2 = {
+	name: 'Using props to pass data',
+	exercises: 7
+    }
+    const part3 = {
+	name: 'State of a component',
+	exercises: 14
+    }
+    
     return (
 	<div>
 	    <Header name={course} />
-	    <Content part={part1} exercise={exercises1}  />
-	    <Content part={part2} exercise={exercises2}  />
-	    <Content part={part3} exercise={exercises3}  />
-	    <Total exercises={exercises} />
-
+	    <Content part={part1.name} exercise={part1.exercises}  />
+	    <Content part={part2.name} exercise={part2.exercises}  />
+	    <Content part={part3.name} exercise={part3.exercises}  />
+	    <Total exercises={[part1.exercises, part2.exercises, part3.exercises]} />
 	</div>
     )
 }
@@ -35,29 +40,31 @@ const Header = (prop) => {
 const Content = (prop) => {
     return (
 	<div>
-	    <p>
-		{prop.part} {prop.exercise}
-	    </p>
+	    <Part name={prop.part} exercise={prop.exercise}/>
+	    
        </div>
+    )
+}
 
+const Part = (prop) => {
+    return (
+	<div>
+	    <p>
+		{prop.name} {prop.exercise}
+	    </p>
+	</div>
     )
 }
 
 // Total renders the total number of exercises
 const Total = (prop) => {
-
-    
-
     let total = 0
-
     prop.exercises.map(exer =>  total += exer)
-    
     return (
 	<div>
 	     <p>Number of exerecises { total }</p>
 	</div>
     )
 }
-
 
 export default App
