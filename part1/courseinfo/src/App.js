@@ -19,11 +19,9 @@ const App = () => {
     
     return (
 	<div>
-	    <Header name={course} />
-	    <Content part={parts[0].name} exercise={parts[0].exercises}  />
-	    <Content part={parts[1].name} exercise={parts[1].exercises}  />
-	    <Content part={parts[2].name} exercise={parts[2].exercises}  />
-	    <Total exercises={[parts[0].exercises, parts[1].exercises, parts[2].exercises]} />
+	    <Header  name={course} />
+	    <Content parts={parts} />
+	    <Total   parts={parts} />
 	</div>
     )
 }
@@ -42,13 +40,15 @@ const Header = (prop) => {
 const Content = (prop) => {
     return (
 	<div>
-	    <Part name={prop.part} exercise={prop.exercise}/>
-	    
+	    <Part name={prop.parts[0].name} exercise={prop.parts[0].exercises} />
+	    <Part name={prop.parts[1].name} exercise={prop.parts[1].exercises} />
+	    <Part name={prop.parts[2].name} exercise={prop.parts[2].exercises} />
        </div>
     )
 }
 
 const Part = (prop) => {
+    console.log('part', prop)
     return (
 	<div>
 	    <p>
@@ -60,8 +60,12 @@ const Part = (prop) => {
 
 // Total renders the total number of exercises
 const Total = (prop) => {
+    let exercises=[]
+    exercises.push(prop.parts[0].exercises)
+    exercises.push(prop.parts[1].exercises)
+    exercises.push(prop.parts[2].exercises)
     let total = 0
-    prop.exercises.map(exer =>  total += exer)
+    exercises.map(exer =>  total += exer)
     return (
 	<div>
 	     <p>Number of exerecises { total }</p>
