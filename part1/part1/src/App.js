@@ -3,15 +3,15 @@ import { useState } from 'react'
 function App() {
     const [ counter, setCounter ] = useState(0)
     
-    const handleClick = () => {
-	setCounter(counter + 1)
-	console.log('clicked', counter)
-    }
+    const increaseByOne = () =>	setCounter(counter + 1)
+
+    const setToZero =  () => setCounter(0)
     
     return (
 	<div>
 	    <div>{counter}</div>
-	    <button onClick={handleClick}>Plus</button>
+	    <button onClick={increaseByOne}>Plus</button>
+    	    <button onClick={setToZero}>Zero</button>
 	</div>
   )
 }
