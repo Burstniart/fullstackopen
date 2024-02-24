@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 const Total = (props) => {
-    const arr = [props.total[0].exercises, props.total[1].exercises, props.total[2].exercises]
+    const arr = [props.total.parts[0].exercises, props.total.parts[1].exercises, props.total.parts[2].exercises]
     return (
       <>
         <p>
